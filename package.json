@@ -7,12 +7,13 @@
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "server:dev": "nodemon --exec ts-node server/index.ts",
     "server:simple": "nodemon --exec ts-node server/simple-server.ts",
+    "server:prod": "ts-node server/production-server.ts",
     "client:dev": "cd client && npm start",
     "build": "cd client && npm run build",
+    "build:server": "tsc server/production-server.ts --outDir dist",
     "start": "npm run server:prod",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server:prod": "ts-node server/production-server.ts",
-    "build:client": "cd client && npm install && npm run build"
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "gps",
