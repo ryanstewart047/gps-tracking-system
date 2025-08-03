@@ -1,0 +1,64 @@
+{
+  "name": "gps-tracking-system",
+  "version": "1.0.0",
+  "description": "Complete GPS tracking system with GSM connectivity for online/offline device tracking",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "nodemon --exec ts-node server/index.ts",
+    "server:simple": "nodemon --exec ts-node server/simple-server.ts",
+    "client:dev": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start": "npm run server:prod",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:prod": "ts-node server/production-server.ts",
+    "build:client": "cd client && npm install && npm run build"
+  },
+  "keywords": [
+    "gps",
+    "tracking",
+    "gsm",
+    "iot",
+    "location",
+    "arduino",
+    "real-time"
+  ],
+  "author": "GPS Tracking System",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.3",
+    "socket.io": "^4.7.4",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "joi": "^17.11.0",
+    "node-cron": "^3.0.3",
+    "mqtt": "^5.3.4",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/morgan": "^1.9.9",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

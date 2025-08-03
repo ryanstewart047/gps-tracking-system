@@ -1,0 +1,9 @@
+{
+  "server_url": "http://localhost:5001",
+  "device_id": "desktop_001",
+  "auth_token": "demo-token-replace-in-production",
+  "update_interval": 30,
+  "enable_location": true,
+  "enable_remote_commands": true,
+  "log_level": "INFO"
+}
