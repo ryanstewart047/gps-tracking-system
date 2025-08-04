@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Tracking System - Dashboard Access</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .status {
+            background: rgba(76, 175, 80, 0.3);
+            border: 1px solid rgba(76, 175, 80, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .status-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #4caf50;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .dashboard-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dashboard-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .deployment-link {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .info-card p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+        }
+        
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🛰️</div>
+        <h1>GPS Tracking System</h1>
+        <p class="subtitle">Real-time device monitoring and management platform</p>
+        
+        <div class="status">
+            <span class="status-dot"></span>
+            <strong>System Status: Operational</strong>
+            <br>
+            Repository updated with complete React dashboard
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🚀 Development</h3>
+                <p>Run locally on your machine for development and testing with full features.</p>
+            </div>
+            <div class="info-card">
+                <h3>🌐 Production</h3>
+                <p>Deploy to Railway + Vercel for live production access from anywhere.</p>
+            </div>
+            <div class="info-card">
+                <h3>📱 Device Support</h3>
+                <p>Monitor desktops, mobile devices, and GPS hardware trackers in real-time.</p>
+            </div>
+            <div class="info-card">
+                <h3>🔒 Admin Control</h3>
+                <p>Send messages, lock screens, and execute remote commands on tracked devices.</p>
+            </div>
+        </div>
+        
+        <div style="margin: 30px 0;">
+            <a href="http://localhost:3000" class="dashboard-link">
+                🖥️ Open Local Dashboard
+            </a>
+            <br>
+            <a href="https://github.com/ryanstewart047/trackingsystem/blob/main/DEPLOYMENT_INSTRUCTIONS.md" class="dashboard-link deployment-link">
+                📋 Deploy to Production
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>
+                <strong>Quick Start:</strong> 
+                <code>npm run dev</code> to start development servers
+                <br>
+                <strong>Repository:</strong> 
+                <a href="https://github.com/ryanstewart047/trackingsystem" target="_blank">
+                    GitHub - trackingsystem
+                </a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Check if local development server is running
+        fetch('http://localhost:3000')
+            .then(response => {
+                if (response.ok) {
+                    document.querySelector('.status').innerHTML = 
+                        '<span class="status-dot"></span><strong>Local Dashboard: Running</strong><br>Click "Open Local Dashboard" to access your system';
+                }
+            })
+            .catch(() => {
+                document.querySelector('.status').innerHTML = 
+                    '<span class="status-dot" style="background: #ff9800;"></span><strong>Local Dashboard: Not Running</strong><br>Run <code>npm run dev</code> to start the development server';
+            });
+    </script>
+</body>
+</html>
