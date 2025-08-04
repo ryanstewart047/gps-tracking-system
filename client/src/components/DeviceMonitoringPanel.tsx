@@ -76,6 +76,103 @@ const DeviceMonitoringPanel: React.FC = () => {
 
   const fetchDevices = async () => {
     try {
+      // Demo mode for GitHub Pages
+      if (process.env.REACT_APP_DEMO_MODE === 'true' || process.env.REACT_APP_API_URL === 'demo') {
+        const demoDevices = [
+          {
+            deviceId: 'demo_desktop_001',
+            name: 'Demo MacBook Pro',
+            type: 'desktop',
+            status: {
+              isOnline: true,
+              lastSeen: new Date().toISOString(),
+              batteryLevel: 87,
+              signalStrength: 95
+            },
+            location: {
+              latitude: 37.7749,
+              longitude: -122.4194,
+              accuracy: 10,
+              address: 'San Francisco, CA, USA',
+              city: 'San Francisco',
+              country: 'USA',
+              lastUpdate: new Date().toISOString()
+            },
+            deviceInfo: {
+              platform: 'macOS',
+              hostname: 'Demo-MacBook-Pro',
+              ipAddress: '192.168.1.100'
+            },
+            settings: {
+              trackingEnabled: true,
+              notificationsEnabled: true
+            }
+          },
+          {
+            deviceId: 'demo_mobile_001',
+            name: 'Demo iPhone',
+            type: 'mobile',
+            status: {
+              isOnline: true,
+              lastSeen: new Date(Date.now() - 5000).toISOString(),
+              batteryLevel: 72,
+              signalStrength: 88
+            },
+            location: {
+              latitude: 40.7128,
+              longitude: -74.0060,
+              accuracy: 5,
+              address: 'New York, NY, USA',
+              city: 'New York',
+              country: 'USA'
+            },
+            deviceInfo: {
+              platform: 'iOS',
+              model: 'iPhone 14 Pro',
+              carrier: 'Verizon'
+            },
+            settings: {
+              trackingEnabled: true,
+              notificationsEnabled: true
+            }
+          },
+          {
+            deviceId: 'demo_gps_001',
+            name: 'Demo Vehicle Tracker',
+            type: 'gps_tracker',
+            status: {
+              isOnline: false,
+              lastSeen: new Date(Date.now() - 300000).toISOString(),
+              batteryLevel: 45,
+              signalStrength: 76
+            },
+            location: {
+              latitude: 34.0522,
+              longitude: -118.2437,
+              accuracy: 15,
+              address: 'Los Angeles, CA, USA',
+              city: 'Los Angeles',
+              country: 'USA'
+            },
+            vehicleInfo: {
+              make: 'Tesla',
+              model: 'Model 3',
+              plate: 'DEMO123'
+            },
+            settings: {
+              trackingEnabled: true,
+              notificationsEnabled: false
+            }
+          }
+        ];
+        // @ts-ignore - Demo data for GitHub Pages
+        setDevices(demoDevices);
+        // @ts-ignore - Demo data for GitHub Pages
+        calculateStats(demoDevices);
+        setLoading(false);
+        return;
+      }
+
       const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5001'}/api/device-monitor/devices`);
       if (response.ok) {
         const data = await response.json();
@@ -84,6 +181,33 @@ const DeviceMonitoringPanel: React.FC = () => {
       }
     } catch (error) {
       console.error('Failed to fetch devices:', error);
+      // Fallback to demo data if API fails
+      const demoDevices = [
+        {
+          deviceId: 'offline_demo',
+          name: 'Demo System (Offline)',
+          type: 'desktop',
+          status: {
+            isOnline: false,
+            lastSeen: new Date().toISOString(),
+            batteryLevel: 0,
+            signalStrength: 0
+          },
+          location: null,
+          deviceInfo: {
+            platform: 'Demo Mode',
+            note: 'Connect to backend for live data'
+          },
+          settings: {
+            updateInterval: 30,
+            alertsEnabled: false
+          }
+        }
+      ];
+      // @ts-ignore - Demo fallback data
+      setDevices(demoDevices);
+      // @ts-ignore - Demo fallback data  
+      calculateStats(demoDevices);
     } finally {
       setLoading(false);
     }
