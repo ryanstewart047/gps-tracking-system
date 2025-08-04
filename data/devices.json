@@ -1,0 +1,106 @@
+[
+  {
+    "deviceId": "gps_001",
+    "type": "gps_tracker",
+    "name": "Vehicle Tracker 1",
+    "status": {
+      "isOnline": true,
+      "lastSeen": "2025-08-03T06:44:28.675Z",
+      "batteryLevel": 85,
+      "signalStrength": 92
+    },
+    "location": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "accuracy": 3.2,
+      "lastUpdate": "2025-08-03T06:44:28.675Z"
+    },
+    "settings": {
+      "updateInterval": 30,
+      "alertsEnabled": true
+    }
+  },
+  {
+    "deviceId": "gps_002",
+    "type": "gps_tracker",
+    "name": "Vehicle Tracker 2",
+    "status": {
+      "isOnline": false,
+      "lastSeen": "2025-08-03T06:39:28.675Z",
+      "batteryLevel": 23,
+      "signalStrength": 67
+    },
+    "location": {
+      "latitude": 37.7849,
+      "longitude": -122.4094,
+      "accuracy": 8.5,
+      "lastUpdate": "2025-08-03T06:39:28.676Z"
+    },
+    "settings": {
+      "updateInterval": 30,
+      "alertsEnabled": true
+    }
+  },
+  {
+    "deviceId": "desktop_001",
+    "type": "desktop",
+    "name": "desktop_001",
+    "status": {
+      "isOnline": true,
+      "lastSeen": "2025-08-04T02:50:15.251Z",
+      "batteryLevel": 100,
+      "signalStrength": 85,
+      "error": "(pid=36253)"
+    },
+    "location": {
+      "latitude": 8.4871,
+      "longitude": -13.2356,
+      "accuracy": 1000,
+      "lastUpdate": "2025-08-04T02:50:15.252Z",
+      "method": "ip",
+      "address": "Freetown, Western Area, SL",
+      "city": "Freetown",
+      "country": "SL"
+    },
+    "settings": {
+      "updateInterval": 30,
+      "alertsEnabled": true
+    },
+    "deviceInfo": {
+      "deviceId": "desktop_001",
+      "type": "desktop",
+      "platform": "Darwin",
+      "platformVersion": "24.5.0",
+      "hostname": "News-MacBook-Air.local",
+      "processor": "arm",
+      "architecture": "64bit",
+      "username": "root",
+      "pythonVersion": "3.9.6",
+      "startTime": "2025-08-03T00:25:21.352108"
+    },
+    "adminCommands": []
+  },
+  {
+    "deviceId": "test_device",
+    "type": "desktop",
+    "name": "test_device",
+    "status": {
+      "isOnline": true,
+      "lastSeen": "2025-08-03T07:24:53.696Z",
+      "batteryLevel": 95,
+      "signalStrength": 88
+    },
+    "location": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "accuracy": 5,
+      "lastUpdate": "2025-08-03T07:24:53.696Z"
+    },
+    "settings": {
+      "updateInterval": 30,
+      "alertsEnabled": true
+    },
+    "deviceInfo": {},
+    "adminCommands": []
+  }
+]
